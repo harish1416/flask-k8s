@@ -31,10 +31,15 @@ spec:
       - name: init-script
         configMap:
           name: pg-init-script
-      - name: pg-data
-        hostPath:
-          path: /data/postgres-0
-          type: DirectoryOrCreate
+  volumeClaimTemplates:
+    - metadata:
+        name: pg-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: standard
+        resources:
+          requests:
+            storage: 2Gi      
 ---
 apiVersion: v1
 kind: Service
@@ -45,3 +50,4 @@ spec:
     app: postgres
   ports:
   - port: 5432
+
