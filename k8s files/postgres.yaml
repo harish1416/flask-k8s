@@ -31,15 +31,9 @@ spec:
       - name: init-script
         configMap:
           name: pg-init-script
-  volumeClaimTemplates:
-    - metadata:
-        name: pg-data
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        storageClassName: standard
-        resources:
-          requests:
-            storage: 2Gi      
+      - name: pg-data
+        persistentVolumeClaim:
+          claimName: pg-data
 ---
 apiVersion: v1
 kind: Service
@@ -51,3 +45,14 @@ spec:
   ports:
   - port: 5432
 
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pg-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
