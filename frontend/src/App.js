@@ -4,13 +4,13 @@ function App() {
   const [input, setInput] = useState('');
 
   const fetchTexts = async () => {
-    const res = await fetch('http://13.236.201.182:5000/texts');
+    const res = await fetch('/texts');
     const data = await res.json();
     setTexts(data);
   };
 
   const addText = async () => {
-    await fetch('http://13.236.201.182:5000/add', {
+    await fetch('/add', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: input })
@@ -20,7 +20,7 @@ function App() {
   };
 
   const deleteTexts = async () => {
-    await fetch('http://13.236.201.182:5000/delete', { method: 'DELETE' });
+    await fetch('/delete', { method: 'DELETE' });
     fetchTexts();
   };
 
