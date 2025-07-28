@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: react-frontend
-        image: harish1416/react-frontend::latest
+        image: harish1416/react-frontend:latest
         ports:
         - containerPort: 80
 
