@@ -35,6 +35,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ],
-    "proxy": "http://flask-service:5000"
+    "proxy": "http://3.26.113.81/:5000"
   }
 }

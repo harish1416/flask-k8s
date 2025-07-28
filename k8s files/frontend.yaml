@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: react-frontend
-        image: harish1416/react-frontend:v1
+        image: harish1416/react-frontend:v3
         ports:
         - containerPort: 80
 
