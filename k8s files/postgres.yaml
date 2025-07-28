@@ -35,3 +35,13 @@ spec:
         hostPath:
           path: /data/postgres-0
           type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pg-service
+spec:
+  selector:
+    app: postgres
+  ports:
+  - port: 5432
